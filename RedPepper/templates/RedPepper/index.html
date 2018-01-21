@@ -1,0 +1,90 @@
+{% extends 'RedPepper/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="one_half">
+    <div class="pizza-item">
+        <div class="item">
+            <img src="{% static 'pizza-trad.png' %}"/>
+        </div>
+        <div class="cena">
+            <div class="mala">
+                <img src="http://redpepper.pl/wp-content/uploads/2014/06/mala.png" alt=""/>
+            </div>
+            <div class="duza">
+                <img src="http://redpepper.pl/wp-content/uploads/2014/06/duza.png" alt=""/>
+            </div>
+        </div>
+    </div>
+
+    <form action="{% url 'list:post_list' %}" method="post">
+        {% csrf_token %}
+
+        {% for oferta in oferta %}
+        {% if oferta.type == "pizza" %}
+
+        <div class="pizza-item">
+            <div class="item">
+                <strong>{{ oferta }}</strong>
+
+                {% for skladnik in oferta.info.all %}
+                {{ skladnik.name }},
+                {% endfor %}
+
+            </div>
+            <div class="cena">
+                <div class="mala">{{ oferta.priceSmall }} <input type="checkbox"/></div>
+                <div class="duza">{{ oferta.priceBig }} <input type="checkbox"/> <input type="number" name="quantity"
+                                                                                        min="0" max="10" value="0"/>
+                </div>
+
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        <div class="pizza-item">
+            <img src="{% static 'napoje-zimne.png' %}"/>
+        </div>
+
+        {% for oferta in oferta %}
+        {% if oferta.type == "napojeZ" %}
+
+        <div class="pizza-item">
+            <div class="item">
+                <strong>{{ oferta }}</strong>
+            </div>
+            <div class="cena">
+                <div class="mala">{{ oferta.priceSmall }} <input type="number" name="quantity" min="0" max="10"
+                                                                 value="0"/></div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        <div class="pizza-item">
+            <img src="{% static 'napoje-gorace.png' %}"/>
+        </div>
+
+
+        {% for oferta in oferta %}
+        {% if oferta.type == "napojeG" %}
+
+
+        <div class="pizza-item">
+            <div class="item">
+                <strong>{{ oferta }}</strong>
+            </div>
+            <div class="cena">
+                <div class="mala">{{ oferta.priceSmall }} <input type="number" name="quantity" min="0" max="10"
+                                                                 value="0"/></div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </form>
+
+</div>
+
+{% endblock %}

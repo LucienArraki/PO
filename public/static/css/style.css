@@ -1,0 +1,43 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
+
+body{
+    background: url("https://static.pyszne.pl/images/generic/categories/pizza/pizza-hawaii.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+
+    overflow-x:hidden;
+  	margin:0;
+  	padding:0;
+	font-family: "Open Sans",Helvetica ,Arial, sans-serif; font-size:13px;
+	font-weight:500;
+	color:#333;
+	line-height:1.6em;
+}
+
+#header {
+    background: #C71628;
+    height: 62px;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header {margin-top: 75px;}
+
+#mainlogo {height: 120px; margin-top: -65px;}
+
+#content-wrapper {
+    padding: 70px 0 0 0;
+    background: url(http://redpepper.pl/wp-content/themes/lezzatos/images/dotwhite80.png);
+    width: 100%;
+}
+
+.container { width: 960px; margin: 0 auto; padding: 0 0 15px 0; }
+
+.container .columns{ float: left; display: inline; margin-left: 35%; }
+.container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+.one_half {display:block; float:left; margin:0 0 5px 0;}
+.pizza-item {float: left; display: block;width: 96%; margin-bottom:5px;}
+.item {display: block; float: left; max-width:350px;}
+.cena {display: block; float: right; font-weight: bold;}
+.cena .mala {float: left; display: block;}
+.cena .duza {float: right;display: block; margin: 0 0 0 10px;}
